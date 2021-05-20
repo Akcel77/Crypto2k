@@ -34,7 +34,13 @@ public class Windows extends JFrame {
 
         //Initialisation du Layout
         this.mainPanel = new JPanel();
+        mainPanel.add(getLblBackGround());
         mainPanel.setLayout( new GridBagLayout());
+
+
+
+
+
         GridBagConstraints gbc = new GridBagConstraints();
 
         //ICI margin de depart pour chaques items
@@ -87,8 +93,14 @@ public class Windows extends JFrame {
      */
     public JLabel getLblBackGround() throws IOException {
         if (lblBackGround == null){
-            ImageIcon icon = new ImageIcon(ImageIO.read(new File("/ressource/bg.png")));
-            lblBackGround = new JLabel(icon);
+
+
+            JLabel lblBackGround = new JLabel(new ImageIcon(this.getClass().getResource("ressource/bg.png")));
+
+            add(lblBackGround);
+
+
+            System.out.println("test");
         }
         return lblBackGround;
     }

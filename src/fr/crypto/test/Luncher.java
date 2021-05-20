@@ -4,6 +4,8 @@ import fr.crypto.ihm.Windows;
 
 import javax.swing.*;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 
 
@@ -16,6 +18,8 @@ public class Luncher {
                 @Override
                 public void run(){
                     try {
+                        
+
                         UIManager.setLookAndFeel(new NimbusLookAndFeel());
                     } catch (UnsupportedLookAndFeelException e) {
                         e.printStackTrace();
