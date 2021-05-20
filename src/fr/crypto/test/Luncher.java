@@ -4,6 +4,7 @@ import fr.crypto.ihm.Windows;
 
 import javax.swing.*;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+import java.io.IOException;
 
 
 public class Luncher {
@@ -19,7 +20,11 @@ public class Luncher {
                     } catch (UnsupportedLookAndFeelException e) {
                         e.printStackTrace();
                     }
-                    Windows luncher = new Windows("Crypto2000");
+                    try {
+                        Windows luncher = new Windows("Crypto2000");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
         }

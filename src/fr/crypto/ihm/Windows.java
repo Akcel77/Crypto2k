@@ -1,7 +1,10 @@
 package fr.crypto.ihm;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Fenetre principale d'affichage
@@ -11,12 +14,12 @@ public class Windows extends JFrame {
     private JTextField message, clef ;
     private JRadioButton radioCrypter, radioDecrypter;
     private ButtonsPanel btns;
+    private JLabel lblBackGround;
 
     private JPanel mainPanel, radioType;
 
-    public Windows(String title){
+    public Windows(String title) throws IOException {
         super(title);
-
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(new Dimension(800,500));
         this.setLocationRelativeTo(null);
@@ -27,7 +30,7 @@ public class Windows extends JFrame {
     // Getter
 
 
-    public void contentInit(){
+    public void contentInit() throws IOException {
 
         //Initialisation du Layout
         this.mainPanel = new JPanel();
@@ -69,12 +72,26 @@ public class Windows extends JFrame {
         gbc.gridwidth = 2;
         mainPanel.add(getBtns(), gbc);
 
+        // TEST
+        //mainPanel.add(getLblBackGround(),gbc);
+
 
         setContentPane(mainPanel);
 
 
     }
 
+    /**
+     * @return une instance d'un JLabel pour faire le background
+     * @throws IOException
+     */
+    public JLabel getLblBackGround() throws IOException {
+        if (lblBackGround == null){
+            ImageIcon icon = new ImageIcon(ImageIO.read(new File("/ressource/bg.png")));
+            lblBackGround = new JLabel(icon);
+        }
+        return lblBackGround;
+    }
 
     /**
      *GETTER DES BUTTONS
@@ -105,6 +122,7 @@ public class Windows extends JFrame {
         }
         return radioDecrypter;
     }
+
     /**
      * Regroupe les radios type sur un seul bouton
      * @return les radios btns
@@ -121,7 +139,6 @@ public class Windows extends JFrame {
         }
         return radioType;
     }
-
 
     public ButtonsPanel getBtns() {
         if (btns == null){
