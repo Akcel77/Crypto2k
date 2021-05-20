@@ -93,13 +93,8 @@ public class Windows extends JFrame {
      */
     public JLabel getLblBackGround() throws IOException {
         if (lblBackGround == null){
-
-
             JLabel lblBackGround = new JLabel(new ImageIcon(this.getClass().getResource("ressource/bg.png")));
-
             add(lblBackGround);
-
-
             System.out.println("test");
         }
         return lblBackGround;
