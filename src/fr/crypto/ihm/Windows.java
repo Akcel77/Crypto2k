@@ -1,9 +1,9 @@
 package fr.crypto.ihm;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 /**
@@ -13,10 +13,12 @@ public class Windows extends JFrame {
 
     private JTextField message, clef ;
     private JRadioButton radioCrypter, radioDecrypter;
-    private ButtonsPanel btns;
+    private JPanel btns;
     private JLabel lblBackGround;
 
     private JPanel mainPanel, radioType;
+    private JButton btnAkcel;
+    private JButton btnJb;
 
     public Windows(String title) throws IOException {
         super(title);
@@ -26,6 +28,8 @@ public class Windows extends JFrame {
         this.setVisible(true);
         contentInit();
     }
+
+
 
     // Getter
 
@@ -84,8 +88,8 @@ public class Windows extends JFrame {
 
 
         setContentPane(mainPanel);
-        JLabel lblBackGround = new JLabel(new ImageIcon(this.getClass().getResource("ressource/bg.png")));
-        mainPanel.add(lblBackGround);
+//        JLabel lblBackGround = new JLabel(new ImageIcon(this.getClass().getResource("ressource/bg.png")));
+//        mainPanel.add(lblBackGround);
 
 
 
@@ -151,11 +155,39 @@ public class Windows extends JFrame {
         return radioType;
     }
 
-    public ButtonsPanel getBtns() {
+    public JPanel getBtns() {
         if (btns == null){
-            btns = new ButtonsPanel();
+            btns = new JPanel();
+            btns.setLayout(new FlowLayout());
+            btns.add(getBtnAkcel());
+            btns.add(getBtnJb());
 
         }
         return btns;
+    }
+
+
+    public JButton getBtnAkcel() {
+        if(btnAkcel == null){
+            btnAkcel = new JButton();
+            ImageIcon imageIcon = new ImageIcon(this.getClass().getResource("ressource/mascotte.gif"));
+            btnAkcel.setIcon(imageIcon);
+            btnAkcel.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Controller.get().cryptThis();
+                }
+            });
+        }
+        return btnAkcel;
+    }
+
+    public JButton getBtnJb() {
+        if(btnJb == null){
+            btnJb = new JButton();
+            ImageIcon imageIcon = new ImageIcon(this.getClass().getResource("ressource/mrdollard.gif"));
+            btnJb.setIcon(imageIcon);
+        }
+        return btnJb;
     }
 }

@@ -1,6 +1,7 @@
 package fr.crypto.test;
 
 import fr.crypto.bo.Crypto;
+import fr.crypto.bo.CryptoAkcel;
 import fr.crypto.bo.CryptoMoji;
 import fr.crypto.ihm.Windows;
 
@@ -35,8 +36,9 @@ public class Luncher {
 
             //DEBUG ZONE crypto Moji
             Crypto cptM = new CryptoMoji();
-            System.out.println(cptM.cryptThis("salut"));
-            System.out.println(cptM.decryptThis("tbmvu"));
+            Crypto cryptoAkcel = new CryptoAkcel();
+            System.out.println(cryptoAkcel.cryptThis("HEYYOU", "KEY"));
+
 
         }
     }
