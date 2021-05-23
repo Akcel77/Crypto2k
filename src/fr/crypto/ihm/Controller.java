@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class Controller  {
 
-    private Windows windows ;
+    private Windows windows  ;
 
     private Crypto cryptoAkcel = new CryptoAkcel();
     private static Controller instance;
@@ -23,11 +23,8 @@ public class Controller  {
         return instance;
     }
 
-    public void cryptThis(){
-        System.out.println("YES");
+    public void cryptThis(String mess, String key){
 
-        String mess = windows.getMessage().getText();
-        String key = windows.getClef().getText();
         System.out.println(mess + " " + key);
 //        if (windows.getRadioCrypter().isSelected()){
 //

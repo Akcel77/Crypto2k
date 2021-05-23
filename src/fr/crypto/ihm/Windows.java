@@ -114,9 +114,11 @@ public class Windows extends JFrame {
     public JTextField getMessage() {
         if (message == null){
             message = new JTextField(30);
+
         }
         return message;
     }
+
     public JTextField getClef() {
         if (clef == null){
             clef = new JTextField(30);
@@ -175,7 +177,9 @@ public class Windows extends JFrame {
             btnAkcel.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Controller.get().cryptThis();
+                    String mes = getMessage().getText();
+                    String key = getClef().getText();
+                    Controller.get().cryptThis(mes, key);
                 }
             });
         }
