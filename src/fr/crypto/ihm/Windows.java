@@ -29,8 +29,6 @@ public class Windows extends JFrame {
         contentInit();
     }
 
-
-
     // Getter
 
 
@@ -40,11 +38,6 @@ public class Windows extends JFrame {
         this.mainPanel = new JPanel();
 
         mainPanel.setLayout( new GridBagLayout());
-
-
-
-
-
 
         GridBagConstraints gbc = new GridBagConstraints();
 
@@ -172,14 +165,21 @@ public class Windows extends JFrame {
     public JButton getBtnAkcel() {
         if(btnAkcel == null){
             btnAkcel = new JButton();
-            ImageIcon imageIcon = new ImageIcon(this.getClass().getResource("ressource/mascotte.gif"));
+            ImageIcon imageIcon = new ImageIcon(this.getClass().getResource("ressource/Akcel.gif"));
             btnAkcel.setIcon(imageIcon);
+
+            //ICI JE RECUPERE LES JTextFiel DANS UN STRING POUR LE METTRE EN PARAMETRE DANS MES FONCTIONS DE LA CLASSE Controller
             btnAkcel.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     String mes = getMessage().getText();
                     String key = getClef().getText();
-                    Controller.get().cryptThis(mes, key);
+                    if(getRadioCrypter().isSelected()){
+                        Controller.get().isCrypted(mes, key);
+                    }else{
+                        Controller.get().isDecrypted(mes,key);
+                    }
+
                 }
             });
         }
@@ -189,7 +189,7 @@ public class Windows extends JFrame {
     public JButton getBtnJb() {
         if(btnJb == null){
             btnJb = new JButton();
-            ImageIcon imageIcon = new ImageIcon(this.getClass().getResource("ressource/mrdollard.gif"));
+            ImageIcon imageIcon = new ImageIcon(this.getClass().getResource("ressource/Jb.gif"));
             btnJb.setIcon(imageIcon);
         }
         return btnJb;

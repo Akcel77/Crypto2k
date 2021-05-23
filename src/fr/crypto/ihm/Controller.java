@@ -23,26 +23,19 @@ public class Controller  {
         return instance;
     }
 
-    public void cryptThis(String mess, String key){
-
+    public void isCrypted(String mess, String key){
+        //OUVERTURE D'UN MODAL POUR PRINT LA KEY CRYPTEE
         System.out.println(mess + " " + key);
-//        if (windows.getRadioCrypter().isSelected()){
-//
-//            cryptoAkcel.cryptThis(mess,key);
-//            JFrame frame = new JFrame("Message Crypte");
-//
-//            //2. Optional: What happens when the frame closes?
-//            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//
-//
-//            //4. Size the frame.
-//            frame.pack();
-//
-//            //5. Show it.
-//            frame.setVisible(true);
-//            JOptionPane.showMessageDialog(frame, "Nice");
-//        }
-    };
+        System.out.println(cryptoAkcel.cryptThis(mess,key));
+        JOptionPane.showMessageDialog(null,cryptoAkcel.cryptThis(mess,key) , "Message Crypte", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public void isDecrypted(String mess, String key){
+        //OUVERTURE D'UN MODAL POUR PRINT LA KEY DECRYPTEE
+        System.out.println(mess + " " + key);
+        System.out.println(cryptoAkcel.decryptThis(mess,key));
+        JOptionPane.showMessageDialog(null,cryptoAkcel.decryptThis(mess,key) , "Message Decrypte", JOptionPane.PLAIN_MESSAGE);
+    }
 
 
 
